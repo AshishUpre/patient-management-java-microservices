@@ -1,0 +1,9 @@
+### address -> first bit - name of server, second bit - name of service, third bit - name of rpc method,
+### it matches the definition present in .proto file
+GRPC localhost:9001/BillingService/CreateBillingAccount
+
+{
+  "patientId": "1",
+  "name": "John Doe",
+  "email": "IbNpW@example.com"
+}

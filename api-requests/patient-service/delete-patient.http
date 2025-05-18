@@ -1,0 +1,4 @@
+### delete an entity
+DELETE http://localhost:4000/patients/4a2d3651-4a69-4351-aeb3-db1531b7bc98
+
+###

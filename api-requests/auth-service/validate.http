@@ -1,0 +1,17 @@
+### GET request to validate token
+GET http://localhost:4005/validate
+Authorization: Bearer {{token}}
+
+### GET request --- invalid token
+GET http://localhost:4005/validate
+Authorization: Bearer asdf9wf;jq0wers##
+
+### ----------------------------- REQUEST AFTER ALLOWING ONLY THROUGH GATEWAY ---------------------------
+
+### GET request to validate token
+GET http://localhost:4004/auth/validate
+Authorization: Bearer {{token}}
+
+### GET request --- invalid token
+GET http://localhost:4004/auth/validate
+Authorization: Bearer asdf9wf;jq0wers##

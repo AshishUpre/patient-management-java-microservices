@@ -1,0 +1,29 @@
+server:
+  port: 4004
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: auth-service-root
+          uri: http://auth-service:4005
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+
+        - id: patient-service-root
+          # docker (podman) will resolve the name paitent-service to the ip of the container
+          uri: http://patient-service:4000
+          predicates:
+            - Path=/api/patients/**
+          filters:
+            # it will strip /api and append rest to uri and pass
+            - StripPrefix=1
+
+        - id: api-docs-patient-route
+          uri: http://patient-service:4000/
+          predicates:
+            - Path=/api-docs/patients
+          filters:
+            - RewritePath=/api-docs/patients,/v3/api-docs

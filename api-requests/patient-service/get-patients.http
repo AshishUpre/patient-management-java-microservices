@@ -1,0 +1,8 @@
+### get patient
+GET http://localhost:4000/patients
+
+### get patient - After api gateway (runs on 4004)
+GET http://localhost:4004/api/patients
+
+### test getting docs
+GET localhost:4004/api-docs/patients

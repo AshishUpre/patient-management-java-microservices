@@ -1,0 +1,46 @@
+### create a new patient entity, -> running twice gives error from global exception handler -> email already exists ex
+POST localhost:4000/patients
+content-type: application/json
+
+{
+    "name" : "John Doe22",
+    "email": "test28@example.com",
+    "address": "123 Main St",
+    "dateOfBirth": "1985-06-15",
+    "registeredDate": "2024-01-10"
+}
+
+### wrong (empty) -> validation should fail this req
+POST localhost:4000/patients
+content-type: application/json
+
+{
+  "name" : "John Doe",
+  "email": "",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15",
+  "registeredDate": "2024-01-10"
+}
+
+### wrong (no email) -> validation should fail this req
+POST localhost:4000/patients
+content-type: application/json
+
+{
+  "name" : "John Doe",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15",
+  "registeredDate": "2024-01-10"
+}
+
+### wrong (name > 100 char) -> validation should fail this req
+POST localhost:4000/patients
+content-type: application/json
+
+{
+  "name" : "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "email": "",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15",
+  "registeredDate": "2024-01-10"
+}

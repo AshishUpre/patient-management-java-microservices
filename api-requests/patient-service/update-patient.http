@@ -1,0 +1,32 @@
+### update patient
+PUT localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+content-type: application/json
+
+{
+  "name" : "John Doe",
+  "email": "test2@example.com",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15"
+}
+
+### update patient
+PUT localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+content-type: application/json
+
+{
+  "name" : "John Doe",
+  "email": "",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15"
+}
+
+### update patient -> email already exists SHOULD NOT BE THROWN
+PUT localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+content-type: application/json
+
+{
+  "name" : "John Doe NAME UPDATED WITHOUT EMAIL ISSUE",
+  "email": "test2@example.com",
+  "address": "123 Main St",
+  "dateOfBirth": "1985-06-15"
+}

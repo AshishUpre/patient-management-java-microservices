@@ -1,0 +1,58 @@
+###  Login request - right credentials => should give token ---> we take that token and assign it to a global variable
+###  also called token. Same variable used in validate.http to validate the same token
+POST http://localhost:4005/login
+content-type: application/json
+
+{
+"email":"testuser@test.com",
+"password":"password123"
+}
+
+> {% client.global.set("token", response.body.token) %}
+###  Login request - wrong pass
+POST http://localhost:4005/login
+content-type: application/json
+
+{
+  "email":"testuser@test.com",
+  "password":"password12"
+}
+
+###  Login request - wrong email
+POST http://localhost:4005/login
+content-type: application/json
+
+{
+  "email":"rongUser@test.com",
+  "password":"password123"
+}
+
+### --------------------------------------- REQUEST AFTER ALLOWING ONLY THROUGH GATEWAY ----------------------
+
+###  Login request - right credentials => should give token
+POST http://localhost:4004/auth/login
+content-type: application/json
+
+{
+  "email":"testuser@test.com",
+  "password":"password123"
+}
+
+> {% client.global.set("token", response.body.token) %}
+###  Login request - wrong pass
+POST http://localhost:4004/auth/login
+content-type: application/json
+
+{
+  "email":"testuser@test.com",
+  "password":"password12"
+}
+
+###  Login request - wrong email
+POST http://localhost:4004/auth/login
+content-type: application/json
+
+{
+  "email":"rongUser@test.com",
+  "password":"password123"
+}
