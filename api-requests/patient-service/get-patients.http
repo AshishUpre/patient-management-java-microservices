@@ -17,6 +17,6 @@ GET localhost:4004/api-docs/patients
 GET http://localhost:4004/api/patients
 Authorization: Bearer {{token}}
 
-### Currently this gives 500, need to fix and give 401 instead
+### Currently this gives 500, need to fix and give 401 instead ---> after adding exception handler, sends 401 now correctly
 GET http://localhost:4004/api/patients
 Authorization: Bearer random-not-token
