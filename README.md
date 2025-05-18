@@ -47,3 +47,6 @@ through api gateway
 ## Gateway involvement
 - gateway will intercept the http requests using a filter and check if token is in proper format
 - then it will call auth service using a webclient (http client) to validate the token
+- dont want to apply token filter logic to auth service routes as they wont have token when the call these 
+- if we apply the token filter to auth service routes, clients can never get token (never access the app)
+- Hence we wil config(application.yml of api-gateway) such that filter is not applied to auth-service routes

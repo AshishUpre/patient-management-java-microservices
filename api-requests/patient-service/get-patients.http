@@ -1,8 +1,22 @@
 ### get patient
 GET http://localhost:4000/patients
 
+### ---------------------------------------------- After api gateway -------------------------------------------------
+
 ### get patient - After api gateway (runs on 4004)
 GET http://localhost:4004/api/patients
 
 ### test getting docs
 GET localhost:4004/api-docs/patients
+
+
+### ---------------------------------------------- After api gateway + Auth service integration ------------------------
+### above 2 should give unauthorized properly
+
+### get patient - After api
+GET http://localhost:4004/api/patients
+Authorization: Bearer {{token}}
+
+### Currently this gives 500, need to fix and give 401 instead
+GET http://localhost:4004/api/patients
+Authorization: Bearer random-not-token

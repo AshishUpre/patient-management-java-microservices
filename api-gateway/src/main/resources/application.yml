@@ -5,6 +5,8 @@ spring:
   cloud:
     gateway:
       routes:
+        # dont want to apply token filter logic to auth service routes as they wont have token when the call these
+        # if we apply the token filter to auth service routes, clients can never get token (never access the app)
         - id: auth-service-root
           uri: http://auth-service:4005
           predicates:
@@ -20,6 +22,9 @@ spring:
           filters:
             # it will strip /api and append rest to uri and pass
             - StripPrefix=1
+            # class name - JwtValidationGatewayFilterFactory => first half of class name matches the filter name
+            # we specified here => springboot will know to apply that filter to this route
+            - JwtValidation
 
         - id: api-docs-patient-route
           uri: http://patient-service:4000/
