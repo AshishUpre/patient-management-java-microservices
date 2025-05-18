@@ -53,4 +53,11 @@ through api gateway
 
 ## auth service docs using api-gateway
 - at this point we already added swagger annotations, now we will be creating documentation, we just have to expose it to api gateway
-- 
+
+# Testing
+unit testing - testing individual components, integration testing - testing multiple components together
+E2E testing - testing entire system from UI to API, security, performance, contract, acceptance testing etc..
+
+- arrange(setting up data for tests), act(trigger what you are testing), assert - (obvious)
+
+## integration-tests module
