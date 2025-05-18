@@ -9,6 +9,9 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class AuthIntegrationTest {
 
+    /**
+     * Before all just means before all in this class. It wont have any dependency on other test classes
+     */
     @BeforeAll
     static void setup() {
         // this is the url what will be called for all tests we write
