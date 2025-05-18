@@ -50,3 +50,7 @@ through api gateway
 - dont want to apply token filter logic to auth service routes as they wont have token when the call these 
 - if we apply the token filter to auth service routes, clients can never get token (never access the app)
 - Hence we wil config(application.yml of api-gateway) such that filter is not applied to auth-service routes
+
+## auth service docs using api-gateway
+- at this point we already added swagger annotations, now we will be creating documentation, we just have to expose it to api gateway
+- 
